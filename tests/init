@@ -1,0 +1,65 @@
+#!/bin/busybox sh
+export PATH=/bin:/tests
+/bin/busybox --install -s /bin
+mount -t proc proc /proc
+mount -t sysfs sys /sys
+mount -t devtmpfs dev /dev
+mkdir -p /tmp /run
+ip link set lo up
+echo "VM_KERNEL_RELEASE=$(uname -r)"
+echo "VM_VERSION_SIGNATURE=$(cat /proc/version_signature)"
+failed=0
+if [ -f /tests/dummy.ko ]; then
+    echo "VM_MODULE_SIG_ENFORCE=$(cat /sys/module/module/parameters/sig_enforce)"
+    [ "$(cat /sys/module/module/parameters/sig_enforce)" = Y ] || failed=1
+    native_ok=1
+    insmod /tests/dummy.ko numdummies=1 || native_ok=0
+    ip link set dummy0 up || native_ok=0
+    ip link show dummy0 || native_ok=0
+    ip link set dummy0 down || native_ok=0
+    ip link delete dummy0 || native_ok=0
+    rmmod dummy || native_ok=0
+    echo "VM_SIGNED_NATIVE_MODULE_RESULT=$native_ok"
+    [ "$native_ok" = 1 ] || failed=1
+fi
+if [ -f /tests/rcu_lifetime_probe.ko ]; then
+    echo "BEGIN_RCU_LIFETIME_PROBE"
+    insmod /tests/rcu_lifetime_probe.ko
+    result=$?
+    summary="$(dmesg | grep RCU_LIFETIME_SUMMARY | tail -1)"
+    echo "$summary"
+    case "$(uname -r)" in
+        *+ionostcp1*)
+            echo "$summary" | grep -q 'socket_early_free=0 request_early_free=0' || failed=1
+            ;;
+        *)
+            echo "$summary" | grep -Eq 'socket_early_free=[1-9][0-9]* request_early_free=[1-9][0-9]*' || failed=1
+            ;;
+    esac
+    [ "$result" = 0 ] || failed=1
+    rmmod rcu_lifetime_probe || failed=1
+    echo "END_RCU_LIFETIME_PROBE EXIT=$result"
+fi
+for test in socket_edge_controls reuseport_addr_any reuseport_dualstack reuseaddr_conflict reuseport_bpf; do
+    echo "BEGIN_SELFTEST=$test"
+    timeout 90 /tests/$test
+    result=$?
+    echo "END_SELFTEST=$test EXIT=$result"
+    [ "$result" = 0 ] || failed=1
+done
+for migration in 0 1; do
+    sysctl -w net.ipv4.tcp_migrate_req=$migration
+    for family in ipv4 mapped; do
+        echo "BEGIN_OPTIONS_CONTROL migrate_req=$migration family=$family"
+        timeout 90 /tests/tcp_options_control "$family"
+        result=$?
+        echo "END_OPTIONS_CONTROL migrate_req=$migration family=$family EXIT=$result"
+        [ "$result" = 0 ] || failed=1
+    done
+done
+echo "VM_MEMINFO_BEGIN"
+grep -E 'MemTotal|MemFree|MemAvailable|Slab|SReclaimable|SUnreclaim' /proc/meminfo
+echo "VM_MEMINFO_END"
+echo "VM_TEST_RESULT=$failed"
+sync
+poweroff -f

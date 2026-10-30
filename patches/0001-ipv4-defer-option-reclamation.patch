@@ -1,0 +1,30 @@
+From: Eric Dumazet <edumazet@kernel.org>
+Subject: [PATCH] ipv4: free inet_opt and ireq_opt after an RCU grace period
+Upstream-Commit: e3f33b0a1d89d738e2b913dab519226eaf76e15b
+CVE: CVE-2026-98432
+
+Backported to Ubuntu linux 6.8.0-147.147 without changing the two upstream
+reclamation operations. Upstream authorship is retained.
+
+--- a/net/ipv4/af_inet.c
++++ b/net/ipv4/af_inet.c
+@@ -154,7 +154,7 @@
+ 	WARN_ON_ONCE(sk->sk_wmem_queued);
+ 	WARN_ON_ONCE(sk_forward_alloc_get(sk));
+ 
+-	kfree(rcu_dereference_protected(inet->inet_opt, 1));
++	kfree_rcu(rcu_dereference_protected(inet->inet_opt, 1), rcu);
+ 	dst_release(rcu_dereference_protected(sk->sk_dst_cache, 1));
+ 	dst_release(rcu_dereference_protected(sk->sk_rx_dst, 1));
+ }
+--- a/net/ipv4/tcp_ipv4.c
++++ b/net/ipv4/tcp_ipv4.c
+@@ -1222,7 +1222,7 @@
+  */
+ static void tcp_v4_reqsk_destructor(struct request_sock *req)
+ {
+-	kfree(rcu_dereference_protected(inet_rsk(req)->ireq_opt, 1));
++	kfree_rcu(rcu_dereference_protected(inet_rsk(req)->ireq_opt, 1), rcu);
+ }
+ 
+ #ifdef CONFIG_TCP_MD5SIG

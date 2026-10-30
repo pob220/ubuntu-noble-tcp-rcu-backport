@@ -1,0 +1,10 @@
+{
+  "Ubuntu_GRUB_ascending_kernel_order": [
+    "/boot/vmlinuz-6.8.0-147-generic",
+    "/boot/vmlinuz-6.8.0-147.1+ionostcp1-generic",
+    "/boot/vmlinuz-6.8.0-149-generic"
+  ],
+  "custom_sorts_after_current": true,
+  "future_official_sorts_after_custom": true,
+  "static_boot_override_required": false
+}

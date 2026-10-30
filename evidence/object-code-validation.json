@@ -1,0 +1,16 @@
+[
+  {
+    "object": "net/ipv4/af_inet.o",
+    "symbol": "inet_sock_destruct",
+    "object_sha256": "5ea836fb4e730cea3c9d43baf9b7e29213c0ffe3a53cbbf179405934268d0c54",
+    "RCU_reclamation_call_present": true,
+    "immediate_kfree_call_absent": true
+  },
+  {
+    "object": "net/ipv4/tcp_ipv4.o",
+    "symbol": "tcp_v4_reqsk_destructor",
+    "object_sha256": "ee3170a072dea0b1599c5c4e5ef546b91ea0b871f86cc04a3cc2efb80bf37ba7",
+    "RCU_reclamation_call_present": true,
+    "immediate_kfree_call_absent": true
+  }
+]

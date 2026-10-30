@@ -1,0 +1,79 @@
+{
+  "generated_utc": "2026-10-30T15:12:49.744380+00:00",
+  "source_version": "6.8.0-147.147",
+  "package_version": "6.8.0-147.147+ionostcp1",
+  "kernel_release": "6.8.0-147.1+ionostcp1-generic",
+  "source_patch": "kernel-and-packaging.patch",
+  "patch_sha256": "e9a3d57a1cc1d5a132e997e386b0521f9629d610f91756348e1a14ca15a4d87c",
+  "image_sha256": "f704bec028ca4861d5a15a77e0197ae26a3b1ab04923f0c225820194fd127a89",
+  "packages": [
+    {
+      "file": "linux-headers-6.8.0-147.1+ionostcp1_6.8.0-147.147+ionostcp1_all.deb",
+      "sha256": "66db117c54949bb4686f545abdd11124494e91272c54a136d7b6af98b2f25690",
+      "bytes": 14187092,
+      "metadata": {
+        "Package": "linux-headers-6.8.0-147.1+ionostcp1",
+        "Version": "6.8.0-147.147+ionostcp1",
+        "Architecture": "all",
+        "Depends": "coreutils",
+        "Conflicts": "",
+        "Replaces": ""
+      }
+    },
+    {
+      "file": "linux-headers-6.8.0-147.1+ionostcp1-generic_6.8.0-147.147+ionostcp1_amd64.deb",
+      "sha256": "64e190070337ef93333e6ca825d35eb0d16ec1bbc2f065f8e74980ff7845f9d2",
+      "bytes": 4322424,
+      "metadata": {
+        "Package": "linux-headers-6.8.0-147.1+ionostcp1-generic",
+        "Version": "6.8.0-147.147+ionostcp1",
+        "Architecture": "amd64",
+        "Depends": "linux-headers-6.8.0-147.1+ionostcp1, libc6 (>= 2.38), libelf1t64 (>= 0.144), libgcc-s1 (>= 4.2), libssl3t64 (>= 3.0.0), zlib1g (>= 1:1.2.3.3)",
+        "Conflicts": "",
+        "Replaces": ""
+      }
+    },
+    {
+      "file": "linux-image-unsigned-6.8.0-147.1+ionostcp1-generic_6.8.0-147.147+ionostcp1_amd64.deb",
+      "sha256": "3a91aeb72cdf31d4badfd31b27c543c3218b1442eb2a3140842e90ac0607688d",
+      "bytes": 15820992,
+      "metadata": {
+        "Package": "linux-image-unsigned-6.8.0-147.1+ionostcp1-generic",
+        "Version": "6.8.0-147.147+ionostcp1",
+        "Architecture": "amd64",
+        "Depends": "kmod, linux-base (>= 4.5ubuntu1~16.04.1), linux-modules-6.8.0-147.1+ionostcp1-generic",
+        "Conflicts": "linux-image-6.8.0-147.1+ionostcp1-generic",
+        "Replaces": ""
+      }
+    },
+    {
+      "file": "linux-modules-6.8.0-147.1+ionostcp1-generic_6.8.0-147.147+ionostcp1_amd64.deb",
+      "sha256": "8220cd6c325a104751838e31119835a0e18439404a8d1cd399a60955840cdae7",
+      "bytes": 39762112,
+      "metadata": {
+        "Package": "linux-modules-6.8.0-147.1+ionostcp1-generic",
+        "Version": "6.8.0-147.147+ionostcp1",
+        "Architecture": "amd64",
+        "Depends": "",
+        "Conflicts": "",
+        "Replaces": ""
+      }
+    },
+    {
+      "file": "linux-modules-extra-6.8.0-147.1+ionostcp1-generic_6.8.0-147.147+ionostcp1_amd64.deb",
+      "sha256": "784fe2ae0a78b8f267c91f1ab7eab6d1aa5a024ed4acb8f071163579f175e74c",
+      "bytes": 114503872,
+      "metadata": {
+        "Package": "linux-modules-extra-6.8.0-147.1+ionostcp1-generic",
+        "Version": "6.8.0-147.147+ionostcp1",
+        "Architecture": "amd64",
+        "Depends": "linux-modules-6.8.0-147.1+ionostcp1-generic, wireless-regdb",
+        "Conflicts": "",
+        "Replaces": ""
+      }
+    }
+  ],
+  "upstream_author": "Eric Dumazet",
+  "upstream_commit": "e3f33b0a1d89d738e2b913dab519226eaf76e15b",
+  "official_Canonical_build": false
+}

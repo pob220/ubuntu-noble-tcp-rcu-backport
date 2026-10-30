@@ -1,0 +1,39 @@
+{
+  "cache_directory": "source/linux-6.8.0/debian/build/build-generic/____________________________________________________________________________________dkms",
+  "packages": [
+    {
+      "file": "zfs-dkms_2.2.2-0ubuntu9.5_all.deb",
+      "sha256": "1d095eeb3d47ee9f3e420636b6c44afff50c19127bf2a54dd23eeb68ebc8eaae",
+      "cached": true,
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/z/zfs-linux/zfs-dkms_2.2.2-0ubuntu9.5_all.deb"
+    },
+    {
+      "file": "v4l2loopback-dkms_0.12.7-2ubuntu5.1_all.deb",
+      "sha256": "ee3da0e655e659ffccd1479f24a0e89757fd06aebd6193cf5aada2ce5f4d053f",
+      "snapshot": "20260301T000000Z",
+      "cached": true,
+      "url": "https://snapshot.ubuntu.com/ubuntu/20260301T000000Z/pool/universe/v/v4l2loopback/v4l2loopback-dkms_0.12.7-2ubuntu5.1_all.deb"
+    },
+    {
+      "file": "intel-ipu6-dkms_0~git202406240945.aecec2aa-0ubuntu2~24.04.3_amd64.deb",
+      "sha256": "a632972f850d04ff54eecbb664ad1b09175f8c1a3395b278f1879e2cbbf9e4a2",
+      "archive": "current",
+      "cached": true,
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/i/ipu6-drivers/intel-ipu6-dkms_0~git202406240945.aecec2aa-0ubuntu2~24.04.3_amd64.deb"
+    },
+    {
+      "file": "backport-iwlwifi-dkms_11510-0ubuntu1.1_all.deb",
+      "sha256": "2fa8f0625e0575382cccf096a0d24cc5a14d385302db09174d3f983f32677b84",
+      "archive": "current",
+      "cached": true,
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/b/backport-iwlwifi-dkms/backport-iwlwifi-dkms_11510-0ubuntu1.1_all.deb"
+    },
+    {
+      "file": "intel-usbio-dkms_0~git202312141918.78ffb706-0ubuntu2.2_amd64.deb",
+      "sha256": "714ed6915557895ce262afbfec3e5be0391a1f0ae4484c56a47bf23c372a2b3b",
+      "archive": "current",
+      "cached": true,
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/u/usbio-drivers/intel-usbio-dkms_0~git202312141918.78ffb706-0ubuntu2.2_amd64.deb"
+    }
+  ]
+}

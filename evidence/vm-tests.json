@@ -1,0 +1,79 @@
+{
+  "utc": "2026-10-30T15:08:37.388639+00:00",
+  "outcome": "verified_in_disposable_UEFI_VMs; see hardware-smoke-test.json for subsequent physical boot",
+  "baseline": {
+    "log": "logs/baseline-uefi-vm.log",
+    "log_sha256": "f3667a8be561a892a6414a17152d636909c2666bbf2a56f216ccf0d287fe737c",
+    "kernel_release": "6.8.0-147-generic",
+    "UEFI_boot": true,
+    "lifetime_probes": {
+      "inet_sock_destruct": {
+        "early_free": 1,
+        "reader_timeout": 0
+      },
+      "tcp_v4_reqsk_destructor": {
+        "early_free": 1,
+        "reader_timeout": 0
+      }
+    },
+    "selftests": {
+      "socket_edge_controls": "0",
+      "reuseport_addr_any": "0",
+      "reuseport_dualstack": "0",
+      "reuseaddr_conflict": "0",
+      "reuseport_bpf": "0"
+    },
+    "reflected_IPv4_options_connections": 8000,
+    "IPv4_and_IPv4_mapped_sockets": true,
+    "request_migration_sysctl_tested_at": [
+      0,
+      1
+    ],
+    "malformed_option_error_semantics_preserved": true,
+    "MPTCP_compatibility_control": true,
+    "DCCP_skip": true,
+    "VM_result": 0
+  },
+  "candidate": {
+    "log": "logs/candidate-uefi-vm.log",
+    "log_sha256": "aee60c5c8c24ef73cf4329e4272888e25ff51070a6e1e6d8c45a0654cf10fce2",
+    "kernel_release": "6.8.0-147.1+ionostcp1-generic",
+    "UEFI_boot": true,
+    "lifetime_probes": {
+      "inet_sock_destruct": {
+        "early_free": 0,
+        "reader_timeout": 0
+      },
+      "tcp_v4_reqsk_destructor": {
+        "early_free": 0,
+        "reader_timeout": 0
+      }
+    },
+    "selftests": {
+      "socket_edge_controls": "0",
+      "reuseport_addr_any": "0",
+      "reuseport_dualstack": "0",
+      "reuseaddr_conflict": "0",
+      "reuseport_bpf": "0"
+    },
+    "reflected_IPv4_options_connections": 8000,
+    "IPv4_and_IPv4_mapped_sockets": true,
+    "request_migration_sysctl_tested_at": [
+      0,
+      1
+    ],
+    "malformed_option_error_semantics_preserved": true,
+    "MPTCP_compatibility_control": true,
+    "DCCP_skip": true,
+    "VM_result": 0,
+    "module_signature_enforcement": true,
+    "signed_native_dummy_driver_load_interface_and_unload": true
+  },
+  "same_two_destructor_invariants_tested": true,
+  "actual_traffic_exploit_or_KASAN_race_reproducer": false,
+  "proof_scope": "Deterministic real destructor reclamation boundaries plus real socket compatibility; request destructor uses a controlled fixture, shared socket destructor uses a real UDP socket. No freed memory is read.",
+  "module_inventory_identical": 6474,
+  "package_image_sha256": "f704bec028ca4861d5a15a77e0197ae26a3b1ab04923f0c225820194fd127a89",
+  "kernel_package_version": "6.8.0-147.147+ionostcp1",
+  "performance_scope": "Software-emulated VM smoke tests; native throughput and production p95 latency were not benchmarked."
+}

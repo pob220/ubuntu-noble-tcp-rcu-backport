@@ -1,0 +1,22 @@
+{
+  "date_UTC": "2026-10-30T15:55:04.337449+00:00",
+  "kernel": "6.8.0-147.1+ionostcp1-generic",
+  "physical_UEFI_boot": true,
+  "root_filesystem": "ext4 on eMMC; UUID unchanged",
+  "ethernet_driver": "r8169",
+  "required_modules": {
+    "mmc_block": true,
+    "sdhci": true,
+    "sdhci_pci": true,
+    "r8169": true
+  },
+  "kernel_fault_markers": {
+    "Kernel panic": 0,
+    "Oops:": 0,
+    "BUG:": 0,
+    "KASAN:": 0,
+    "WARNING: CPU:": 0,
+    "EXT4-fs error": 0
+  },
+  "stock_recovery_image_unchanged": true
+}
