@@ -1,0 +1,32 @@
+[
+  {
+    "left": "6.8.0-147.147",
+    "operator": "lt",
+    "right": "6.8.0-147.147+ionostcp1",
+    "pass": true
+  },
+  {
+    "left": "6.8.0-147.147+ionostcp1",
+    "operator": "lt",
+    "right": "6.8.0-147.148",
+    "pass": true
+  },
+  {
+    "left": "6.8.0-147.147+ionostcp1",
+    "operator": "lt",
+    "right": "6.8.0-148.148",
+    "pass": true
+  },
+  {
+    "left": "6.8.0-147.147+ionostcp1",
+    "operator": "lt",
+    "right": "6.8.0-149.149",
+    "pass": true
+  },
+  {
+    "left": "6.8.0-147+ionostcp1-generic",
+    "operator": "lt",
+    "right": "6.8.0-149-generic",
+    "pass": true
+  }
+]

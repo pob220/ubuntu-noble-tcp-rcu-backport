@@ -1,0 +1,10 @@
+{
+  "original_code_files_compared": 59603,
+  "changed_original_code_files": [
+    "net/ipv4/af_inet.c",
+    "net/ipv4/tcp_ipv4.c"
+  ],
+  "all_other_original_C_headers_assembly_and_Rust_unchanged": true,
+  "baseline_normalisation": "Unchanged official debian.master/reconstruct, matching native clean step",
+  "original_code_manifest_sha256": "e3a3375eda9dfb822666b7fb687b3c4817fb83f7fe1fa698c343f79405f8d454"
+}

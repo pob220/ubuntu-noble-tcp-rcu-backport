@@ -1,0 +1,5 @@
+# Unified diff context markers precede verbatim tabs/blank lines by design.
+patches/*.patch -whitespace
+# Preserve the original upstream licensing files byte-for-byte.
+Documentation/process/license-rules.rst -whitespace
+LICENSES/exceptions/Linux-syscall-note -whitespace

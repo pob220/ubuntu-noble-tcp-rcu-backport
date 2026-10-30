@@ -1,0 +1,28 @@
+{
+  "independent_gpgv_exit": 0,
+  "archive_keyring": "Ubuntu archive keyring inside pinned official image",
+  "InRelease_sha256": "414551460dc19d8ad6e8baf89d3cc31763495de1f5a49fdffbf359001c408952",
+  "Sources_sha256": "fb4c8357847cf53117bc7019141ac6dddc92cfa7b05097d457c708fbcdc2b73f",
+  "Sources_bytes": 2941938,
+  "Sources_covered_by_signed_InRelease": true,
+  "source_package": "linux",
+  "version": "6.8.0-147.147",
+  "all_source_checksums_pass": true,
+  "source_files": [
+    {
+      "name": "linux_6.8.0.orig.tar.gz",
+      "sha256": "26512115972bdf017a4ac826cc7d3e9b0ba397d4f85cd330e4e4ff54c78061c8",
+      "bytes": 230060117
+    },
+    {
+      "name": "linux_6.8.0-147.147.diff.gz",
+      "sha256": "370fa76631a470323e92a0b25dca6012287c4ada448c7f2e4954f45a628e936c",
+      "bytes": 9974355
+    },
+    {
+      "name": "linux_6.8.0-147.147.dsc",
+      "sha256": "c546485ca6c4bd45143817f44c7c12498b64e9c911f434fd14147ecb9ebb981f",
+      "bytes": 9348
+    }
+  ]
+}
